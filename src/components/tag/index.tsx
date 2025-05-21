@@ -19,7 +19,13 @@ export default function Tag({
       style={{ background: secondaryColor }}
     >
       {icon ? (
-        <Image src={icon} alt="Category Item" width={16} height={16} />
+        <Image
+          src={icon}
+          alt="Category Item"
+          width={16}
+          height={16}
+          style={{ width: '16px', height: '16px' }}
+        />
       ) : null}
       <p style={{ color: primaryColor }} className="text-xs">
         {category}

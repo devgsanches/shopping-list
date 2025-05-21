@@ -10,7 +10,7 @@ import type { Item } from '@/contexts/items'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function Form() {
-  const { items, setItems } = useItems()
+  const { setItems } = useItems()
   const [title, setTitle] = useState('')
   const [quantity, setQuantity] = useState('')
   const [option, setOption] = useState('unidade')
@@ -24,6 +24,7 @@ export default function Form() {
         quantity: quantity.trim(),
         option,
         category,
+        checked: false,
       }
       setItems(prevItems => [...prevItems, newItem])
 

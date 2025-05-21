@@ -11,7 +11,6 @@ import { useState } from 'react'
 import Tag from '../tag'
 import { CircleCheckBig, SquarePen, Trash } from 'lucide-react'
 import { useItems } from '@/contexts/items/useItems'
-import Input from '../input'
 
 interface Item {
   id: string
@@ -19,29 +18,23 @@ interface Item {
   quantity: string
   option: string
   category: string
+  isChecked: boolean
 }
 
-type ItemProps = {
-  id?: string
-  title: string
-  quantity: string
-  option: string
-  category: string
-}
 export default function Item({
   id,
   title,
   quantity,
   option,
   category,
-}: ItemProps) {
-  const [checked, setChecked] = useState<boolean>(false)
+  isChecked,
+}: Item) {
   const [active, setActive] = useState<boolean>(false)
   const [edit, setEdit] = useState<boolean>(false)
   const [titleValue, setTitleValue] = useState<string>('')
   const [quantityValue, setQuantityValue] = useState<string>('')
   const [validateError, setValidateError] = useState<boolean>(false)
-  const { setItems } = useItems()
+  const { items, setItems } = useItems()
   function getFormattedQuantity() {
     if (Number(quantity) <= 1 && (option === 'unidade' || option === 'litro')) {
       return `${quantity} ${option}`
@@ -121,7 +114,7 @@ export default function Item({
     const updatedItems = items.filter((item: Item) => item.id.toString() !== id)
 
     localStorage.setItem('shopping-list:items', JSON.stringify(updatedItems))
-    setItems(updatedItems) // atualiza no localStorage e no contexto > cliente
+    setItems(updatedItems)
   }
 
   function editItems() {
@@ -149,12 +142,26 @@ export default function Item({
     setValidateError(true)
   }
 
+  function persist() {
+    const itemsUpdated = items.map(item => {
+      return item.id === id
+        ? {
+            ...item,
+            checked: !item.checked,
+          }
+        : item
+    })
+
+    setItems(itemsUpdated)
+    localStorage.setItem('shopping-list:items', JSON.stringify(itemsUpdated))
+  }
+
   return (
     <div
       className={`${
         edit ? 'h-auto' : 'h-[4.25rem]'
       }  bg-[#17171A] border border-[#252529] rounded-lg p-4 flex items-center justify-between ${
-        checked ? 'opacity-50' : null
+        isChecked ? 'opacity-50' : null
       }`}
     >
       <div
@@ -166,17 +173,18 @@ export default function Item({
           <>
             <input
               type="checkbox"
+              checked={isChecked}
               className="w-5 h-5 appearance-none bg-[#17171A] border-2 border-[#A881E6] rounded relative
              checked:bg-[#2F723D] checked:border-none
              checked:after:content-['✔'] checked:after:text-white checked:after:text-sm
              checked:after:absolute checked:after:inset-0 checked:after:flex checked:after:items-center checked:after:justify-center cursor-pointer"
-              onChange={() => setChecked(prevState => !prevState)}
+              onChange={persist}
             />
 
             <div>
               <p
                 className={`text-sm text-[#FBF9FE] ${
-                  checked ? 'line-through decoration-2' : null
+                  isChecked ? 'line-through decoration-2' : null
                 } capitalize`}
               >
                 {title}
@@ -223,6 +231,7 @@ export default function Item({
             alt="More Icon"
             width={20}
             height={20}
+            style={{ width: '20px', height: '20px' }}
             onClick={() => setActive(prevState => !prevState)}
           />
         </div>
@@ -244,6 +253,7 @@ export default function Item({
             alt="More Icon"
             width={20}
             height={20}
+            style={{ width: '20px', height: '20px' }}
             onClick={() => setActive(prevState => !prevState)}
           />
         </div>

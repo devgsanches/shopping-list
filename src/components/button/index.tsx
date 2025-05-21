@@ -14,7 +14,13 @@ export default function Button({ onClick, ...rest }: ButtonProps) {
       {...rest}
       onClick={onClick}
     >
-      <Image src={plusIcon} alt="Ícone de mais" />
+      <Image
+        src={plusIcon}
+        alt="Ícone de mais"
+        width={20}
+        height={20}
+        style={{ width: '20px', height: '20px' }}
+      />
     </button>
   )
 }

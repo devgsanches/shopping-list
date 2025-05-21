@@ -14,6 +14,7 @@ export type Item = {
   quantity: string
   option: string
   category: string
+  checked: boolean
 }
 
 type ItemsContextType = {

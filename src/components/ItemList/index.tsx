@@ -24,6 +24,7 @@ export default function ItemList() {
           option={item.option}
           category={item.category}
           id={item.id}
+          isChecked={item.checked}
         />
       ))}
     </div>
