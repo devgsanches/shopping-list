@@ -172,6 +172,7 @@ export default function Item({
         {!edit && (
           <>
             <input
+              name="checkItem"
               type="checkbox"
               checked={isChecked}
               className="w-5 h-5 appearance-none bg-[#17171A] border-2 border-[#A881E6] rounded relative
@@ -197,6 +198,7 @@ export default function Item({
           <div className="flex flex-col justify-center items-center gap-4">
             <div className="flex flex-col gap-2 items-center">
               <input
+                id="newItem"
                 type="text"
                 value={titleValue}
                 onChange={e => setTitleValue(e.target.value)}
@@ -204,6 +206,7 @@ export default function Item({
                 className="outline-none border border-[#A881E6] px-2 py-1 rounded-lg w-40"
               />
               <input
+                id="newQuantity"
                 type="text"
                 value={quantityValue}
                 onChange={e => setQuantityValue(e.target.value)}
