@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Lista de Compras
 
-## Getting Started
+Uma aplicação moderna e intuitiva para gerenciar suas listas de compras, desenvolvida com Next.js, TypeScript e Tailwind CSS.
 
-First, run the development server:
+## ✨ Funcionalidades
+
+- ✏️ Adicionar itens com título, quantidade e categoria
+- 🏷️ Categorização automática de itens
+- 📱 Interface responsiva e moderna
+- 🌙 Suporte a tema claro/escuro
+- 💾 Persistência de dados com localStorage
+- ✨ Animações suaves
+- 🔍 Busca e filtragem de itens
+- ✅ Marcação de itens como comprados
+
+## 🚀 Tecnologias Utilizadas
+
+- [Next.js 15](https://nextjs.org/)
+- [React 19](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [UUID](https://github.com/uuidjs/uuid)
+
+## 🛠️ Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/shopping-list.git
+```
+
+2. Instale as dependências:
+
+```bash
+cd shopping-list
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+```
+
+3. Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver a aplicação.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Scripts Disponíveis
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Cria a versão de produção
+- `npm run start` - Inicia a versão de produção
+- `npm run lint` - Executa o linter
 
-## Learn More
+## 🏗️ Estrutura do Projeto
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/              # Páginas e layouts da aplicação
+├── components/       # Componentes React reutilizáveis
+├── contexts/        # Contextos React para gerenciamento de estado
+├── assets/          # Recursos estáticos (ícones, imagens)
+└── styles/          # Estilos globais e configurações do Tailwind
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contribuindo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## Deploy on Vercel
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Licença
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 👥 Autor
+
+Guilherme Sanches - [@devgsanches](https://github.com/devgsanches)
+
+---
+
+Feito com ❤️ e ☕
