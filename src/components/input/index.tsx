@@ -16,10 +16,11 @@ export default function Input({
 }: InputProps) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor="" className="text-[#AFABB6]">
+      <label htmlFor="item" className="text-[#AFABB6]">
         {label}
       </label>
       <input
+        id="item"
         className={`w-[${width}] bg-[#111112] border border-[#252529] outline-none rounded-lg p-2`}
         {...rest}
         value={value}
