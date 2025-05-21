@@ -4,8 +4,6 @@ import CoverBg from '@/assets/cover.svg'
 import { useItems } from '@/contexts/items/useItems'
 
 export default function Header() {
-  const { items, setItems } = useItems()
-
   return (
     <header
       className="bg-cover bg-no-repeat h-[11.375rem]"
